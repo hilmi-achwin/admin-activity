@@ -9,59 +9,155 @@ Dashboard
 @endsection
 
 @section('code-header')
-
+<style type="text/css">
+.textarea { margin-top: 100px }
+</style>
 
 @endsection
 
 @section('main-content')
- <form id="profileForm" method="post" class="form-horizontal" action="{{url('/'.$activity->id.'/add')}}" >
+ <form id="profileForm" method="post" class="form-horizontal" action="{{url('/activity/'.$activity->id.'/process')}}" >
  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <h2>Pre-check</h2>
+
+    <h2>Identitas Perusahaan</h2>
+
     <section data-step="0">
         <div class="form-group">
-            <label class="col-xs-3 -label">A. Fisik</label>
+            <label class="col-xs-3 control-label">Nama Perusahaan:</label>
             <div class="col-xs-5">
-                <input type="textarea" rows="10" cols="30" class="form-control" name="Fisik" />
+                <input type="text"  class="form-control" name="nama_perusahaan" value="{{ $perusahaan->nama_perusahaan }}" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Alamat</label>
+            <div class="col-xs-5">
+                <input type="text"  class="form-control" name="alamat" value="{{ $perusahaan->alamat }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Nomor Telepon:</label>
+            <div class="col-xs-5">
+                <input type="text"  class="form-control" name="nomor_telepon" value="{{ $perusahaan->nomor_telepon }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Fax:</label>
+            <div class="col-xs-5">
+                <input type="text"  class="form-control" name="fax" value="{{ $perusahaan->fax }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">E-mail:</label>
+            <div class="col-xs-5">
+                <input type="text"  class="form-control" name="email" value="{{ $perusahaan->email }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Contact Person:</label>
+            <div class="col-xs-5">
+                <input type="text"  class="form-control" name="kontak_person" value="{{ $perusahaan->kontak_person }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">NPWP:</label>
+            <div class="col-xs-5">
+                <input type="text"  class="form-control" name="npwp" value="{{ $perusahaan->npwp }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">EDI Number:</label>
+            <div class="col-xs-5">
+                <input type="text"  class="form-control" name="edi_number" value="{{ $perusahaan->edi_number }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Enabler:</label>
+            <div class="col-xs-5">
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="enabler" value="X2" {!! ($perusahaan->enabler == 'X2')? 'checked' : '' !!}> X2 <br>
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="enabler" value="EXTREME" {!! ($perusahaan->enabler == 'EXTREME')? 'checked' : '' !!}> EXTREME <br>
+                </label>
+                <label class="checkbox-inline">
+                    <input type="checkbox" name="enabler" value="Lainnya" {!! ($perusahaan->enabler == 'Lainnya')? 'checked' : '' !!}> Lainnya <br>               
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Jenis Perusahaan:</label>
+            <div class="col-xs-5">
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir" {!! ($perusahaan->jenis_perusahaan == 'Eksportir')? 'checked' : '' !!}> Eksportir <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Importir" {!! ($perusahaan->jenis_perusahaan == 'Importir')? 'checked' : '' !!}>Importir<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="PPJK" {!! ($perusahaan->jenis_perusahaan == 'PPJK')? 'checked' : '' !!}> PPJK <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir dan Importir" {!! ($perusahaan->jenis_perusahaan == 'Eksportir dan Importir')? 'checked' : '' !!}> Eksportir dan Importir <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Shipping Line" {!! ($perusahaan->jenis_perusahaan == 'Shipping line')? 'checked' : '' !!}> Shipping Line<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Airline" {!! ($perusahaan->jenis_perusahaan == 'Airline')? 'checked' : '' !!}> Airline<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Bank " {!! ($perusahaan->jenis_perusahaan == 'Bank')? 'checked' : '' !!}> Bank<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="lainnya" {!! ($perusahaan->jenis_perusahaan == 'lainnya')? 'checked' : '' !!}> Lainnya<br>
+            </div>
+        </div>
+
+
+    </section>
+
+    <!--STEP 1-->
+    <h2>Pre-check</h2>
+    <section data-step="1">
+
+        <div class="form-group">
+            <h2>A. Fisik</h2>
+            <label></label>
+            <div>
+                <textarea name = "fisik" rows="9" cols="60" style="vertical-align: left;"></textarea>
             </div>
         </div>
 
             
         <br>
         <div class="form-group">
-        <h2>Komponen</h2>
+        <h2>B. Komponen</h2>
             <label class="col-xs-3 control-label">Operating Sistem (OS)</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="OS" />
+                <input type="text"  class="form-control" name="os" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Modul Terpasang</label>
             <div class="col-xs-5">
-                <input type="checkbox" name="modul terpasang" value="modul pib"> Modul PIB <br>
-                <input type="checkbox"  name="modul terpasang" value="modul peb" > Modul PEB<br>
-                <input type="checkbox"  name="modul terpasang" value="modul tpb"> Modul TPB <br>
-                <input type="checkbox" name="modul terpasang" value="modul pengangkut"> Modul Pengangkut <br>
-                <input type="checkbox"  name="modul terpasang" value="modul antri manifest" > Modul Antri Manifest<br>
-                <input type="checkbox"  name="modul terpasang" value="modul bank"> Modul Bank<br>
-                <input type="checkbox"  name="modul terpasang" value="modul bank interface"> Modul Bank Interface <br>
-                <input type="checkbox"  name="modul terpasang" value="lain-lain"> Lain-Lain<br>
+                <input type="checkbox" name="modul_terpasang" value="modul pib"> Modul PIB <br>
+                <input type="checkbox" name="modul_terpasang" value="modul peb" > Modul PEB<br>
+                <input type="checkbox" name="modul_terpasang" value="modul tpb"> Modul TPB <br>
+                <input type="checkbox" name="modul_terpasang" value="modul pengangkut"> Modul Pengangkut <br>
+                <input type="checkbox" name="modul_terpasang" value="modul antri manifest" > Modul Antri Manifest<br>
+                <input type="checkbox" name="modul_terpasang" value="modul bank"> Modul Bank<br>
+                <input type="checkbox" name="modul_terpasang" value="modul bank interface"> Modul Bank Interface <br>
+                <input type="checkbox" name="modul_terpasang" value="lain-lain"> Lain-Lain<br>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Modem</label>
             <div class="col-xs-5">
-                <input type="text"  name="modem" /><br>
-                <input type="radio" name="modem" value="tidak-ada"> Tidak ada <br>
+                <label class="text-inline">
+                    <input type="text"  name="modem" placeholder="ada,..."/>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="modem" value="tidak-ada"> Tidak ada <br>
+                </label>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Accessories</label>
             <div class="col-xs-5">
-                <input type="radio" name="accessories" value="ada" />Ada (mouse, keyboard, flashdisk, dll)<br>
-                <input type="radio" name="accessories" value="tidak-ada"> Tidak ada <br>
+                <label class="radio-inline">
+                    <input type="radio" name="accessories" value="ada" />Ada (mouse, keyboard, flashdisk, dll)
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="accessories" value="tidak-ada"> Tidak ada 
+                </label>
             </div>
         </div>
 
@@ -69,44 +165,47 @@ Dashboard
         <h2>Setting Komputer</h2>
             <label class="col-xs-3 control-label">No. Dial IPLUS</label>
             <div class="col-xs-5">
-                <input type="text" class="form-control" name="no-dial-iplus" />
+                <input type="text" class="form-control" name="num_dial_iplus" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">IP EXTREME</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="ip-extreme" />
+                <input type="text"  class="form-control" name="ip_extreme" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Directory Modul</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="directory-modul" />
+                <input type="text"  class="form-control" name="directory_modul" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Lain-Lain</label>
             <div class="col-xs-5">
-                <input type="textarea" rows="10" cols="30" class="form-control" name="lain-lain" />
+                <textarea name = "lain-lain" rows="5" cols="55" style="vertical-align: left;"></textarea>
             </div>
         </div>
     </section>
 
+    <!--STEP 2-->
     <h2>Tindakan Perbaikan</h2>
-    <section data-step="1">
+    <section data-step="2">
         <div class="form-group">
+
             <label class="col-xs-3 control-label">Tindakan Perbaikan</label>
             <div class="col-xs-5">
-                <input type="textarea" rows="30" cols="90" class="form-control" name="tindakan-perbaikan" />
+                <textarea name = "tindakan_perbaikan" rows="10" cols="75" style="vertical-align: left;"></textarea>
             </div>
         </div>
     </section>
 
+    <!--STEP 3-->
     <h2>Post-check</h2>
-    <section data-step="2">
+    <section data-step="3">
 
         <div class="form-group">
         <div>
@@ -114,59 +213,82 @@ Dashboard
         </div>  
             <label class="col-xs-3 control-label">Mengembalikan ke fungsi awal?</label>
             <div class="col-xs-5">
-                <input type="radio" name="fungsi-awal" value="ya" /> Ya <br>
-                <input type="radio" name="fungsi-awal" value="tidak"> Tidak<br>
+                <label class="radio-inline">
+                    <input type="radio" name="pengembalian_fungsi_awal" value="ya" /> Ya <br>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="pengembalian_fungsi_awal" value="tidak"> Tidak<br>
+                </label>    
             </div>
         </div>
 
-        <div>
-            <h2>Non-Fisik</h2>
-        </div>  
-
         <div class="form-group">
+            <div>
+                <h2>Non-Fisik</h2>
+            </div> 
             <label class="col-xs-3 control-label">Fungsi Modul EDII</label>
             <div class="col-xs-5">
-                <input type="radio" name="fungsi-edii" value="berfungsi" /> Berfungsi <br>
-                <input type="radio" name="fungsi-awal" value="tidak-berfungsi">Tidak Berfungsi<br>
+                <label class="radio-inline">
+                    <input type="radio" name="fungsi_model_edii" value="berfungsi" /> Berfungsi <br>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fungsi_model_edii" value="tidak-berfungsi">Tidak Berfungsi<br>
+                </label>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Fungsi Pembentukan EDIFACT</label>
             <div class="col-xs-5">
-                <input type="radio" name="fungsi-edifact" value="berfungsi" /> Berfungsi <br>
-                <input type="radio" name="fungsi-edifact" value="tidak-berfungsi">Tidak Berfungsi<br>
+                <label class="radio-inline">
+                    <input type="radio" name="fungsi_pembentukan_edifact" value="berfungsi" /> Berfungsi <br>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fungsi_pembentukan_edifact" value="tidak-berfungsi">Tidak Berfungsi<br>
+                </label>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Fungsi Komunikasi</label>
             <div class="col-xs-5">
-                <input type="radio" name="fungsi-komunikasi" value="berfungsi" /> Berfungsi <br>
-                <input type="radio" name="fungsi-komunikasi" value="tidak-berfungsi">Tidak Berfungsi<br>
+                <label class="radio-inline">
+                    <input type="radio" name="fungsi_komunikasi" value="berfungsi" /> Berfungsi <br>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="fungsi_komunikasi" value="tidak-berfungsi" />Tidak Berfungsi<br>
+                </label>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Penyelesaian Semua Keluhan</label>
             <div class="col-xs-5">
-                <input type="radio" name="keluhan" value="ya" /> Ya <br>
-                <input type="radio" name="keluhan" value="tidak">Tidak<br>
+                <label class="radio-inline">
+                    <input type="radio" name="penyelesaian_semua_keluhan" value="ya" /> Ya <br>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="penyelesaian_semua_keluhan" value="tidak">Tidak<br>
+                </label>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Serah terima perangkat dalam baik dan lengkap</label>
             <div class="col-xs-5">
-                <input type="radio" name="keluhan" value="ya"> Ya
-                <input type="radio" name="keluhan" value="tidak">Tidak<br>
+                <label class="radio-inline">
+                    <input type="radio" name="serah_terima" value="ya"> Ya <br>
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="serah_terima" value="tidak">Tidak<br>
+                </label>
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Lain-Lain</label>
             <div class="col-xs-5">
-                <input type="textarea" rows="10" cols="30" class="form-control" name="Lain-lainPostCheck" />
+                <textarea name = "lain-lain" rows="5" cols="55" style="vertical-align: left;"></textarea>
             </div>
         </div>
         
@@ -195,11 +317,16 @@ Dashboard
   .wizard .content {
     min-height: 100px;
 }
+
 .wizard .content > .body {
     width: 100%;
     height: auto;
     padding: 15px;
     position: relative;
+}
+
+input[type=radio]{
+    display: inline;
 }
 </style>
 <script>
@@ -219,14 +346,15 @@ $(document).ready(function() {
 $("#profileForm ").steps({
             headerTag: "h2",
             bodyTag: "section",
-            onFinished: function (event, currentIndex)
-            {
-                var form = $(this);
+          onFinished: function (event, currentIndex)
+        {
+            var form = $(this);
 
-                // Submit form input
-                form.submit();
-            }
-          
+            // Submit form input
+
+            form.submit();
+        }
+        
         });
 
 </script>
