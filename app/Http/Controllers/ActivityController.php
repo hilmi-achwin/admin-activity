@@ -17,9 +17,10 @@ use Response;
 class ActivityController extends Controller
 {
 
-    public function index()
+    public function index($status)
     {   
-        $activities = Activity::all();
+        $status = studly_case($status);
+        $activities = Activity::where('status',$status)->get();
         $data = [
             'page' => 'activity',
             'activities' => $activities
@@ -35,6 +36,11 @@ class ActivityController extends Controller
             'activity' => $activity
         ];
         return view('activity.process',$data);
+    }
+
+    public function postProcess(Request $request)
+    {
+        dd($request->input);
     }
 
    

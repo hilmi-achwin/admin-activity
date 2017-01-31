@@ -14,7 +14,7 @@ Dashboard
 @endsection
 
 @section('main-content')
- <form id="profileForm" method="post" class="form-horizontal" action="{{url('/add')}}" >
+ <form id="profileForm" method="post" class="form-horizontal" action="{{url('/'.$activity->id.'/add')}}" >
  <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <h2>Pre-check</h2>
     <section data-step="0">
