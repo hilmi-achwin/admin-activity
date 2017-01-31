@@ -22,4 +22,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
     #adminlte_routes
+    Route::group(['prefix'=>'activity'], function(){
+        Route::get('/',['as'=>'admin.user.index', 'uses'=>'ActivityController@index']);
+        Route::get('/{id}/process',['as'=>'admin.artikel.post.create', 'uses'=>'ActivityController@process']);
+        Route::post('/{id}/process',['as'=>'admin.artikel.post.create', 'uses'=>'ActivityController@postProcess']);
+        });
 });

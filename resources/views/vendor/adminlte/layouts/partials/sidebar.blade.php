@@ -31,10 +31,18 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
+            <li class="header">Main Menu</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
+            <li @if($page == 'dashboard')
+            {!! 'class="active"'!!}
+            @endif>
+            <a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>Dashboard</span></a></li>
+            <li
+            @if($page == 'activity')
+            {!! 'class="active"'!!}
+            @endif
+            ><a href="{{url('activity')}}"><i class='fa fa-newspaper-o'></i> <span>Activity</span></a></li>
+
             <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
