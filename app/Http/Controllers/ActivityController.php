@@ -53,7 +53,8 @@ class ActivityController extends Controller
 
     public function postProcess(Request $request)
     {
-        dd($request->input());
+        $pdf = PDF::loadView('pdf');
+        return $pdf->inline('invoice.pdf');
         // $message = sprintf('Klik link berikut untuk aktivasi akun Hai Unair anda ');
 
         // $this->mailer->raw($message, function (Message $m) {
