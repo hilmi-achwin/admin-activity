@@ -124,7 +124,7 @@ class ActivityController extends Controller
             'precheck' => $precheck,
             'postcheck' => $postcheck
         ];    
-       
+        
          //$pdf = PDF::loadView('pdf', $data);
          //return $pdf->inline('invoice.pdf');
        
