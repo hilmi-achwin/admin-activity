@@ -44,7 +44,7 @@ class ActivityController extends Controller
 
     public function postProcess(Request $request)
     {
-        
+        dd($request->input());   
     }
 
    
