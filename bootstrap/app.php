@@ -53,6 +53,4 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
-class_alias(Barryvdh\Snappy\Facades\SnappyPdf::class, 'PDF');
-class_alias(Barryvdh\Snappy\Facades\SnappyImage::class, 'SnappyImage');
 return $app;
