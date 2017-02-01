@@ -18,6 +18,7 @@ Dashboard
 @section('main-content')
  <form id="profileForm" method="post" class="form-horizontal" action="{{url('/activity/'.$activity->id.'/process')}}" >
  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+ <input type="hidden" name="id_activity" value="{{ $activity->id }}">
 
     <h2>Identitas Perusahaan</h2>
 
@@ -38,6 +39,12 @@ Dashboard
             <label class="col-xs-3 control-label">Nomor Telepon:</label>
             <div class="col-xs-5">
                 <input type="text"  class="form-control" name="nomor_telepon" value="{{ $perusahaan->nomor_telepon }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Nomor HP:</label>
+            <div class="col-xs-5">
+                <input type="text"  class="form-control" name="no_hp" value="{{ $perusahaan->no_hp }}"/>
             </div>
         </div>
         <div class="form-group">
@@ -126,14 +133,14 @@ Dashboard
         <div class="form-group">
             <label class="col-xs-3 control-label">Modul Terpasang</label>
             <div class="col-xs-5">
-                <input type="checkbox" name="modul_terpasang" value="modul pib"> Modul PIB <br>
-                <input type="checkbox" name="modul_terpasang" value="modul peb" > Modul PEB<br>
-                <input type="checkbox" name="modul_terpasang" value="modul tpb"> Modul TPB <br>
-                <input type="checkbox" name="modul_terpasang" value="modul pengangkut"> Modul Pengangkut <br>
-                <input type="checkbox" name="modul_terpasang" value="modul antri manifest" > Modul Antri Manifest<br>
-                <input type="checkbox" name="modul_terpasang" value="modul bank"> Modul Bank<br>
-                <input type="checkbox" name="modul_terpasang" value="modul bank interface"> Modul Bank Interface <br>
-                <input type="checkbox" name="modul_terpasang" value="lain-lain"> Lain-Lain<br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul pib"> Modul PIB <br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul peb" > Modul PEB<br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul tpb"> Modul TPB <br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul pengangkut"> Modul Pengangkut <br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul antri manifest" > Modul Antri Manifest<br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul bank"> Modul Bank<br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul bank interface"> Modul Bank Interface <br>
+                <input type="checkbox" name="modul_terpasang[]" value="lain-lain"> Lain-Lain<br>
             </div>
         </div>
 

@@ -12,7 +12,7 @@ class Activity extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-       'id_perusahaan','detail_permasalahan', 'tindakan_perbaikan', 'sequence_number', 'nama_admin','status', 
+       'nama_perusahaan','detail_permasalahan', 'tindakan_perbaikan', 'sequence_number', 'nama_admin','status', 
     ];
 
     protected $guarded = [];
