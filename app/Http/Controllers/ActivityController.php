@@ -61,13 +61,8 @@ class ActivityController extends Controller
 
     public function postProcess(Request $request)
 
-    {
-
-        // $pdf = PDF::loadView('pdf');
-        // return $pdf->inline('invoice.pdf');
-       
-      
-       
+    {  
+        
         $waktu_selesai = Carbon::now(7);
         $modul_terpasang = implode(',', $request['modul_terpasang']);
         $precheckInput = Precheck::create([
@@ -80,7 +75,7 @@ class ActivityController extends Controller
             'num_dial_iplus' => $request->input('num_dial_iplus'),
             'ip_extreme' => $request->input('ip_extreme'),
             'directory_modul' => $request->input('directory_modul'),
-            'lain-lain' => $request->input('lain-lain'),
+            'lain-lain' => $request->input('lain-lainPre'),
             'modul_terpasang' => $modul_terpasang
             ]);
 
@@ -93,7 +88,7 @@ class ActivityController extends Controller
             'fungsi_komunikasi' => $request->input('fungsi_komunikasi'),
             'penyelesaian_semua_keluhan' => $request->input('penyelesaian_semua_keluhan'),
             'serah_terima' => $request->input('serah_terima'),
-            'lain-lain' => $request->input('lain-lain'),
+            'lain-lain' => $request->input('lain-lainPost'),
             ]);
 
         $jenis_perusahaan = implode(',', $request['jenis_perusahaan']);
@@ -118,7 +113,10 @@ class ActivityController extends Controller
             'status' => 'Sudah',
             'waktu_selesai' => $waktu_selesai->toTimeString()
             ]);
-    
+        
+         //$pdf = PDF::loadView('pdf');
+         //return $pdf->inline('invoice.pdf');
+       
                 
   
 

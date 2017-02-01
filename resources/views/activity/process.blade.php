@@ -193,7 +193,7 @@ Dashboard
         <div class="form-group">
             <label class="col-xs-3 control-label">Lain-Lain</label>
             <div class="col-xs-5">
-                <textarea name = "lain-lain" rows="5" cols="55" style="vertical-align: left;"></textarea>
+                <textarea name = "lain-lainPre" rows="5" cols="55" style="vertical-align: left;"></textarea>
             </div>
         </div>
     </section>
@@ -300,7 +300,7 @@ Dashboard
         <div class="form-group">
             <label class="col-xs-3 control-label">Lain-Lain</label>
             <div class="col-xs-5">
-                <textarea name = "lain-lain" rows="5" cols="55" style="vertical-align: left;"></textarea>
+                <textarea name = "lain-lainPost" rows="5" cols="55" style="vertical-align: left;"></textarea>
             </div>
         </div>
         
