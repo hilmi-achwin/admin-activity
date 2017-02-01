@@ -74,7 +74,7 @@ class ActivityController extends Controller
             'num_dial_iplus' => $request->input('num_dial_iplus'),
             'ip_extreme' => $request->input('ip_extreme'),
             'directory_modul' => $request->input('directory_modul'),
-            'lain-lain' => $request->input('lain-lainPre'),
+            'lainlain' => $request->input('lain-lainPre'),
             'modul_terpasang' => $modul_terpasang
             ]);
 
@@ -87,7 +87,7 @@ class ActivityController extends Controller
             'fungsi_komunikasi' => $request->input('fungsi_komunikasi'),
             'penyelesaian_semua_keluhan' => $request->input('penyelesaian_semua_keluhan'),
             'serah_terima' => $request->input('serah_terima'),
-            'lain-lain' => $request->input('lain-lainPost'),
+            'lainlain' => $request->input('lain-lainPost'),
             ]);
 
         $jenis_perusahaan = implode(',', $request['jenis_perusahaan']);
@@ -125,6 +125,7 @@ class ActivityController extends Controller
             'postcheck' => $postcheck
         ];    
         
+        return view('pdf',$data);
          //$pdf = PDF::loadView('pdf', $data);
          //return $pdf->inline('invoice.pdf');
        

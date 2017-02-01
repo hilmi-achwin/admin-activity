@@ -30,15 +30,15 @@
       </p></div>
     <div class="col-xs-2"><p style="border: solid 1px #000000; background: #ffffff; padding: 15px; margin: 0; text-align: left; line-height: 13px; color: black; font-size: 10px">
       <label for="arrival">Waktu Kedatangan :</label><br>
-      <input type="text" class="col-xs-12" id="arrival" name="created_at" style="text-align: center;"value="{{$activity->created_at}}"><br><br>
+      <input type="text" class="col-xs-12" id="arrival" name="created_at" style="text-align: center;"value="{{$activity->waktu_kedatangan}}"><br><br>
     </p></div>
     <div class="col-xs-2"><p style="border: solid 1px #000000; background: #ffffff; padding: 15px; margin: 0; text-align: left; line-height: 13px; color: black; font-size: 10px">
       <label for="start">Waktu Mulai :</label><br>
-      <input type="text" class="col-xs-12" id="start" name="created_at" style="text-align: center;"value="{{$activity->created_at}}"><br><br>
+      <input type="text" class="col-xs-12" id="start" name="created_at" style="text-align: center;"value="{{$activity->waktu_mulai}}"><br><br>
     </p></div>
     <div class="col-xs-2"><p style="border: solid 1px #000000; background: #ffffff; padding: 15px; margin: 0; text-align: left; line-height: 13px; color: black; font-size: 10px"> 
     <label for="finish">Waktu Selesai :</label><br>
-      <input type="text" class="col-xs-12" id="finish" name="updated_at" style="text-align: center;"value="{{$activity->created_at}}"><br><br>
+      <input type="text" class="col-xs-12" id="finish" name="updated_at" style="text-align: center;"value="{{$activity->waktu_selesai}}"><br><br>
     </p></div>
     <div class="col-xs-2"><p style="border: solid 1px #000000; background: #ffffff; padding: 15px; margin: 0; text-align: left; line-height: 13px; color: black; font-size: 10px">
       <label for="place">Place of Work:</label><br>
@@ -107,61 +107,61 @@
   <div style="background: #ffffff; padding: 10px; margin: 0; text-align: justify; line-height: 23px; color: black; font-size: 10px">
   <label class="col-xs-12" for="awal" style="line-height: 10px;">Cek Awal (Pre-Check) </label><br>
   <label class="col-xs-12" for="fisik" style="line-height: 10px;">A. Fisik </label>
-  <textarea class="form-control" rows="3" id="fisik" style="font-size: 10px;">{{$pre-check->fisik}}</textarea><br>
+  <textarea class="form-control" rows="3" id="fisik" style="font-size: 10px;">{{$precheck->fisik}}</textarea><br>
   <label class="col-xs-12" for="komponen">B. Komponen </label>
   <label class="col-xs-6" for="os" style="line-height: 10px;">1. Operating Sistem (OS) : </label>
-  <p class="col-xs-6" value="os" name="os" style="line-height: 10px;" value="{{$pre-check->os}}"></p>
+  <p class="col-xs-6"  name="os" style="line-height: 10px;" value="">{{$precheck->os}}</p>
   <br><br>
   <label class="col-xs-6" for="modul_terpasang" style="line-height: 10px;" >2. Modul Terpasang : </label>
-  <p class="col-xs-6" value="modul_terpasang" name="modul_terpasang" style="line-height: 10px;" value="{{$pre-check->modul_terpasang}}"></p>
+  <p class="col-xs-6"  name="modul_terpasang" style="line-height: 10px;" value="">{{$precheck->modul_terpasang}}</p>
   <br>
   <label class="col-xs-6" for="modem" style="line-height: 10px;">3. Modem : </label>
-  <p class="col-xs-6" value="modem" name="modem" style="line-height: 10px;" value="{{$pre-check->modem}}"></p>
+  <p class="col-xs-6"  name="modem" style="line-height: 10px;" value="">{{$precheck->modem}}</p>
   <br>
   <label class="col-xs-6" for="acc" style="line-height: 10px;">4. Accessories : </label>
-  <p class="col-xs-6" value="acc" name="accessories" style="line-height: 10px;" value="{{$pre-check->accessories}}" ></p>
+  <p class="col-xs-6"  name="accessories" style="line-height: 10px;" value="" >{{$precheck->accessories}}</p>
   <br>
   <label class="col-xs-6" for="set" style="line-height: 10px;">5. Setting Komputer </label>
-  <p class="col-xs-6" value="set" name="set" style="line-height: 10px;"></p>
+  <p class="col-xs-6"  name="set" style="line-height: 10px;"></p>
   <br>
   <label class="col-xs-6" for="dial" style="line-height: 10px;">a. No. Dial IPLUS : </label>
-  <p class="col-xs-6" value="dial" name="num_dial_iplus" style="line-height: 10px;" value="{{$pre-check->num_dial_iplus}}" ></p>
+  <p class="col-xs-6"  name="num_dial_iplus" style="line-height: 10px;" value="" >{{$precheck->num_dial_iplus}}</p>
   <br>
   <label class="col-xs-6" for="ipex" style="line-height: 10px;">b. IP EXTREME: </label>
-  <p class="col-xs-6" value="ipex" name="ip_extreme" style="line-height: 10px;" value="{{$pre-check->ip_extreme}}" ></p>
+  <p class="col-xs-6"  name="ip_extreme" style="line-height: 10px;" value="" >{{$precheck->ip_extreme}}</p>
   <br>
   <label class="col-xs-6" for="direc" style="line-height: 10px;">c. Directori Modul : </label>
-  <p class="col-xs-6" value="direc" name="directory_modul" style="line-height: 10px;" value="{{$pre-check->directory_modul}}" ></p>
+  <p class="col-xs-6"  name="directory_modul" style="line-height: 10px;" value="" >{{$precheck->directory_modul}}</p>
   <br>
   <label class="col-xs-6" for="lain" style="line-height: 10px;">d. Lain-lain : </label>
-  <textarea class="form-control" rows="3" id="lain" style="font-size: 10px;">{{$pre-check->lain-lain}}</textarea>
+  <textarea class="form-control" rows="3" id="lain" style="font-size: 10px;">{!! $precheck->lainlain !!}</textarea>
     </div>
   </div>
   <div class="col-xs-6">
   <div style="background: #ffffff; padding: 10px; margin: 0; text-align: justify; line-height: 23px; color: black; font-size: 10px">
-   <label class="col-xs-12" for="akhir" style="line-height: 10px;">Cek Akhir (Post-Check) </label><br>
+   <label class="col-xs-12" for="akhir" style="line-height: 10px;">Cek Akhir (postcheck) </label><br>
   <label class="col-xs-12" for="fisik2" style="line-height: 10px;">A. Fisik </label><br>
   <label class="col-xs-6" for="1" style="line-height: 10px;">1. Mengembalikan ke setting awal </label>
-  <p class="col-xs-6" value="1" name="pengambalian_fungsi_awal" style="line-height: 10px;" value="{{$post-check->pengambalian_fungsi_awal}}" ></p>
+  <p class="col-xs-6"  name="pengambalian_fungsi_awal" style="line-height: 10px;" value="" >{{$postcheck->pengembalian_fungsi_awal}}</p>
   <br>
   <label class="col-xs-12" for="non" style="line-height: 10px;">B. Non Fisik </label><br>
   <label class="col-xs-6" for="mod" style="line-height: 10px;">1. Fungsi Modul EDII : </label>
-  <p class="col-xs-6" value="mod" name="fungsi_modul_edii" style="line-height: 10px;" value="{{$post-check->fungsi_modul_edii}}" ></p>
+  <p class="col-xs-6" name="fungsi_modul_edii" style="line-height: 10px;" value="" >{{$postcheck->fungsi_model_edii}}</p>
   <br>
   <label class="col-xs-6" for="edifact" style="line-height: 20px;">2. Fungsi Pembentukan EDIFACT (Harus bisa) : </label>
-  <p class="col-xs-6" value="edifact" name="fungsi_pembentukan_edifact" style="line-height: 20px;" value="{{$post-check->fungsi_pembentukan_edifact}}" ></p>
+  <p class="col-xs-6"  name="fungsi_pembentukan_edifact" style="line-height: 20px;" value="" >{{$postcheck->fungsi_pembentukan_edifact}}</p>
   <br><br>
   <label class="col-xs-6" for="komunikasi" style="line-height: 10px;">3. Fungsi Komunikasi : </label>
-  <p class="col-xs-6" value="komunikasi" name="fungsi_komunikasi" style="line-height: 10px;" value="{{$post-check->fungsi_komunikasi}}" ></p>
+  <p class="col-xs-6"  name="fungsi_komunikasi" style="line-height: 10px;" value="" >{{$postcheck->fungsi_komunikasi}}</p>
   <br>
   <label class="col-xs-6" for="keluhan" style="line-height: 10px;">4. Penyelesaian Semua Keluhan : </label>
-  <p class="col-xs-6" value="keluhan" name="penyelesaian_semua_keluhan" style="line-height: 10px;"  value="{{$post-check->penyelesaian_semua_keluhan}}" ></p>
+  <p class="col-xs-6"  name="penyelesaian_semua_keluhan" style="line-height: 10px;"  value="" >{{$postcheck->penyelesaian_semua_keluhan}}</p>
   <br>
   <label class="col-xs-6" for="serah" style="line-height: 20px;">5. Serah Terima perangkat dalam baik dan lengkap </label>
-  <p class="col-xs-6" value="serah" name="serah-terima" style="line-height: 20px;" value="{{$post-check->serah-terima}}" ></p>
+  <p class="col-xs-6"  name="serah-terima" style="line-height: 20px;" value="" >{{$postcheck->serah_terima}}</p>
   <br><br>
   <label class="col-xs-12" for="lain2" style="line-height: 10px;">6. Lain-lain : </label>
-  <textarea class="form-control" rows="3" id="lain2" style="font-size: 10px;">{{$post-check->lain-lain}}</textarea>
+  <textarea class="form-control" rows="3" id="lain2" style="font-size: 10px;">{{$postcheck->lainlain}}</textarea>
   </div>
   <p class="col-xs-12" for="dengan" style="font-size: 10px;">Dengan ini saya menyatakan telah menerima perangkat komputer dan <br> kelengkapannya sesuai data diatas dengan lengkap dan baik </p><br><br><br><br>
     <div class="col-xs-3" >
