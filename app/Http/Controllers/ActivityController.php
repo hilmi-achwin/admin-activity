@@ -19,6 +19,7 @@ use Response;
 use PDF;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
+use Carbon\Carbon;
 
 
 class ActivityController extends Controller
@@ -43,6 +44,10 @@ class ActivityController extends Controller
 
     public function process($id)
     {
+        $waktu_mulai = Carbon::now(7);
+        $waktu_mulaiUpdate = Activity::where('id', $id)->update([
+            'waktu_mulai' => $waktu_mulai->toTimeString()
+            ]);
         $activity = Activity::where('id',$id)->first();
         
         $perusahaan = Perusahaan::where('nama_perusahaan',$activity->nama_perusahaan)->first();
@@ -55,9 +60,8 @@ class ActivityController extends Controller
     }
 
     public function postProcess(Request $request)
-    {
-       
-        
+    {   
+        $waktu_selesai = Carbon::now(7);
         $modul_terpasang = implode(',', $request['modul_terpasang']);
         $precheckInput = Precheck::create([
             'id_activity' => $request->input('id_activity'),
@@ -104,10 +108,11 @@ class ActivityController extends Controller
         $activityUpdate = Activity::where('id', $request->input('id_activity'))->update([
             'tindakan_perbaikan' => $request->input('tindakan_perbaikan'),
             'nama_admin' => Auth::User()->id,
-            'status' => 'Sudah'
+            'status' => 'Sudah',
+            'waktu_selesai' => $waktu_selesai->toTimeString()
             ]);
     
-        
+                
         // $message = sprintf('Klik link berikut untuk aktivasi akun Hai Unair anda ');
 
         // $this->mailer->raw($message, function (Message $m) {
