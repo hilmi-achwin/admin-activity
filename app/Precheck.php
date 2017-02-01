@@ -12,7 +12,7 @@ class Precheck extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-       'fisik', 'id_activity', 'os', 'modul_terpasang', 'modem', 'accessories', 'num_dial_iplus', 'ip_extreme', 'directory_modul', 'lain-lain'
+       'fisik', 'id_activity', 'os', 'modul_terpasang', 'modem', 'accessories', 'num_dial_iplus', 'ip_extreme', 'directory_modul', 'lainlain'
     ];
 
     protected $guarded = [];
