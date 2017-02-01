@@ -61,8 +61,7 @@ class ActivityController extends Controller
 
     public function postProcess(Request $request)
 
-    {  
-        
+    { 
         $waktu_selesai = Carbon::now(7);
         $modul_terpasang = implode(',', $request['modul_terpasang']);
         $precheckInput = Precheck::create([
@@ -113,8 +112,20 @@ class ActivityController extends Controller
             'status' => 'Sudah',
             'waktu_selesai' => $waktu_selesai->toTimeString()
             ]);
-        
-         //$pdf = PDF::loadView('pdf');
+
+        $activity = Activity::where('id',$request->input('id_activity'))->first();
+        $perusahaan = Perusahaan::where('nama_perusahaan',$request->input('nama_perusahaan'))->first();
+        $precheck = Precheck::where('id_activity',$request->input('id_activity'))->first();
+        $postcheck = Postcheck::where('id_activity',$request->input('id_activity'))->first();
+
+        $data = [
+            'activity' => $activity,
+            'perusahaan' => $perusahaan,
+            'precheck' => $precheck,
+            'postcheck' => $postcheck
+        ];    
+       
+         //$pdf = PDF::loadView('pdf', $data);
          //return $pdf->inline('invoice.pdf');
        
                 
