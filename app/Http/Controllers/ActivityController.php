@@ -13,10 +13,19 @@ use Session;
 use Input;
 use Validator;
 use Response;
+use PDF;
+use Illuminate\Mail\Mailer;
+use Illuminate\Mail\Message;
 
 
 class ActivityController extends Controller
-{
+{   
+    protected $mailer;
+
+     public function __construct(Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }   
 
     public function index($status)
     {   
@@ -33,7 +42,7 @@ class ActivityController extends Controller
     {
         $activity = Activity::find($id);
         
-        $perusahaan = Perusahaan::where('nama_perusahaan',$activity->nama_perusahaan)->first();
+        $perusahaan = Perusahaan::where('nama_perusahaan','1')->first();
         $data = [
             'page' => 'activity',
             'activity' => $activity,
@@ -44,7 +53,13 @@ class ActivityController extends Controller
 
     public function postProcess(Request $request)
     {
-        
+        dd($request->input());
+        // $message = sprintf('Klik link berikut untuk aktivasi akun Hai Unair anda ');
+
+        // $this->mailer->raw($message, function (Message $m) {
+        //     $m->to('hilmiweq321@gmail.com')->subject('Aktivasi akun Hai Unair');
+        //     $m->attach(public_path().'/Hasil Online BOF ITS.xlsx');
+        // });
     }
 
    

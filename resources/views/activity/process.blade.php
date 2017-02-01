@@ -74,27 +74,27 @@ Dashboard
             <label class="col-xs-3 control-label">Enabler:</label>
             <div class="col-xs-5">
                 <label class="checkbox-inline">
-                    <input type="checkbox" name="enabler" value="X2" {!! ($perusahaan->enabler == 'X2')? 'checked' : '' !!}> X2 <br>
+                    <input type="checkbox" name="enabler" value="X2" {!! (str_contains($perusahaan->enabler,'X2'))? 'checked' : '' !!}> X2 <br>
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" name="enabler" value="EXTREME" {!! ($perusahaan->enabler == 'EXTREME')? 'checked' : '' !!}> EXTREME <br>
+                    <input type="checkbox" name="enabler" value="EXTREME" {!! (str_contains($perusahaan->enabler,'EXTREME'))? 'checked' : '' !!}> EXTREME <br>
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" name="enabler" value="Lainnya" {!! ($perusahaan->enabler == 'Lainnya')? 'checked' : '' !!}> Lainnya <br>               
+                    <input type="checkbox" name="enabler" value="Lainnya" {!! (str_contains($perusahaan->enabler,'Lainnya'))? 'checked' : '' !!}> Lainnya <br>               
                 </label>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Jenis Perusahaan:</label>
             <div class="col-xs-5">
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir" {!! ($perusahaan->jenis_perusahaan == 'Eksportir')? 'checked' : '' !!}> Eksportir <br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Importir" {!! ($perusahaan->jenis_perusahaan == 'Importir')? 'checked' : '' !!}>Importir<br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="PPJK" {!! ($perusahaan->jenis_perusahaan == 'PPJK')? 'checked' : '' !!}> PPJK <br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir dan Importir" {!! ($perusahaan->jenis_perusahaan == 'Eksportir dan Importir')? 'checked' : '' !!}> Eksportir dan Importir <br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Shipping Line" {!! ($perusahaan->jenis_perusahaan == 'Shipping line')? 'checked' : '' !!}> Shipping Line<br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Airline" {!! ($perusahaan->jenis_perusahaan == 'Airline')? 'checked' : '' !!}> Airline<br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Bank " {!! ($perusahaan->jenis_perusahaan == 'Bank')? 'checked' : '' !!}> Bank<br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="lainnya" {!! ($perusahaan->jenis_perusahaan == 'lainnya')? 'checked' : '' !!}> Lainnya<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir" {!! (str_contains($perusahaan->jenis_perusahaan,'Eksportir'))? 'checked' : '' !!}> Eksportir <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Importir" {!! (str_contains($perusahaan->jenis_perusahaan,'Importir'))? 'checked' : '' !!}>Importir<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="PPJK" {!! (str_contains($perusahaan->jenis_perusahaan,'PPJK'))? 'checked' : '' !!}> PPJK <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir dan Importir" {!! (str_contains($perusahaan->jenis_perusahaan,'Eksportir dan Importir'))? 'checked' : '' !!}> Eksportir dan Importir <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Shipping Line" {!! (str_contains($perusahaan->jenis_perusahaan,'Shipping line'))? 'checked' : '' !!}> Shipping Line<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Airline" {!! (str_contains($perusahaan->jenis_perusahaan,'Airline'))? 'checked' : '' !!}> Airline<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Bank " {!! (str_contains($perusahaan->jenis_perusahaan,'Bank'))? 'checked' : '' !!}> Bank<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="lainnya" {!! (str_contains($perusahaan->jenis_perusahaan,'lainnya'))? 'checked' : '' !!}> Lainnya<br>
             </div>
         </div>
 
@@ -126,14 +126,14 @@ Dashboard
         <div class="form-group">
             <label class="col-xs-3 control-label">Modul Terpasang</label>
             <div class="col-xs-5">
-                <input type="checkbox" name="modul_terpasang" value="modul pib"> Modul PIB <br>
-                <input type="checkbox" name="modul_terpasang" value="modul peb" > Modul PEB<br>
-                <input type="checkbox" name="modul_terpasang" value="modul tpb"> Modul TPB <br>
-                <input type="checkbox" name="modul_terpasang" value="modul pengangkut"> Modul Pengangkut <br>
-                <input type="checkbox" name="modul_terpasang" value="modul antri manifest" > Modul Antri Manifest<br>
-                <input type="checkbox" name="modul_terpasang" value="modul bank"> Modul Bank<br>
-                <input type="checkbox" name="modul_terpasang" value="modul bank interface"> Modul Bank Interface <br>
-                <input type="checkbox" name="modul_terpasang" value="lain-lain"> Lain-Lain<br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul pib"> Modul PIB <br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul peb" > Modul PEB<br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul tpb"> Modul TPB <br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul pengangkut"> Modul Pengangkut <br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul antri manifest" > Modul Antri Manifest<br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul bank"> Modul Bank<br>
+                <input type="checkbox" name="modul_terpasang[]" value="modul bank interface"> Modul Bank Interface <br>
+                <input type="checkbox" name="modul_terpasang[]" value="lain-lain"> Lain-Lain<br>
             </div>
         </div>
 
