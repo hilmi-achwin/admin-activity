@@ -202,7 +202,12 @@ Dashboard
     <h2>Tindakan Perbaikan</h2>
     <section data-step="2">
         <div class="form-group">
-
+            <label class="col-xs-3 control-label">Detail Permasalahan</label>
+            <div class="col-xs-5">
+                <textarea name = "detail_permasalahan" rows="10" cols="75" style="vertical-align: left;">{{ $activity->detail_permasalahan }}</textarea>
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-xs-3 control-label">Tindakan Perbaikan</label>
             <div class="col-xs-5">
                 <textarea name = "tindakan_perbaikan" rows="10" cols="75" style="vertical-align: left;"></textarea>
