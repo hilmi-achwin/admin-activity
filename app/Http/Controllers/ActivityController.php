@@ -20,7 +20,7 @@ use PDF;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
 use Carbon\Carbon;
-
+include_once(app_path().'/phpmailer/class.phpmailer.php');
 
 class ActivityController extends Controller
 {   
@@ -54,7 +54,11 @@ class ActivityController extends Controller
 
     public function postProcess(Request $request)
 
-    { 
+
+       
+       
+      
+ {
         $waktu_selesai = Carbon::now(7);
         $modul_terpasang = implode(',', $request['modul_terpasang']);
         $precheckInput = Precheck::create([
@@ -118,16 +122,22 @@ class ActivityController extends Controller
             'postcheck' => $postcheck
         ];    
         
-        return view('pdf',$data);
-         //$pdf = PDF::loadView('pdf', $data);
-         //return $pdf->inline('invoice.pdf');
+        //return view('pdf',$data);
+         $pdf = PDF::loadView('pdf', $data);
+         return $pdf->inline('invoice.pdf');
        
+
                 
-  
+//    $mail = new \PHPMailer(true);
+//         $body = 'An email test!';
+ 
+// $mail->AddReplyTo('hilmiweq321@gmail.com', 'Clark Kent');
+// $mail->SetFrom('hilmiweq321@gmail.com', 'Clark Kent');
+// $mail->AddAddress('hilmiweq321@gmail.com', 'Code Chewing');
+// $mail->Subject = 'Test email';
+// $mail->MsgHTML( "weq");
+ 
+// if( ! $mail->Send() ) {
+//   echo "Mailer Error: " . $mail->ErrorInfo;
 
-        
-    }
-
-   
-
-}
+}}
