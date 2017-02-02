@@ -16,9 +16,9 @@ Dashboard
 @endsection
 
 @section('main-content')
- <form id="profileForm" method="post" class="form-horizontal" action="{{url('/activity/'.$activity->id.'/process')}}" >
- <input type="hidden" name="_token" value="{{ csrf_token() }}">
- <input type="hidden" name="id_activity" value="{{ $activity->id }}">
+ <form id="profileForm" method="post" class="form-horizontal" action="{!!url('/activity/'.$activity->id.'/process')!!}" >
+ <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+ <input type="hidden" name="id_activity" value="{!! $activity->id !!}">
 
     <h2>Identitas Perusahaan</h2>
 
@@ -26,84 +26,86 @@ Dashboard
         <div class="form-group">
             <label class="col-xs-3 control-label">Nama Perusahaan:</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="nama_perusahaan" value="{{ $perusahaan->nama_perusahaan }}" />
+                <input type="text"  class="form-control" name="nama_perusahaan" value="{!! $perusahaan->nama_perusahaan !!}" />
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Alamat</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="alamat" value="{{ $perusahaan->alamat }}"/>
+                <input type="text"  class="form-control" name="alamat" value="{!! $perusahaan->alamat !!}"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Nomor Telepon:</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="nomor_telepon" value="{{ $perusahaan->nomor_telepon }}"/>
+                <input type="text"  class="form-control" name="nomor_telepon" value="{!! $perusahaan->nomor_telepon !!}"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Nomor HP:</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="no_hp" value="{{ $perusahaan->no_hp }}"/>
+                <input type="text"  class="form-control" name="no_hp" value="{!! $perusahaan->no_hp !!}"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Fax:</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="fax" value="{{ $perusahaan->fax }}"/>
+                <input type="text"  class="form-control" name="fax" value="{!! $perusahaan->fax !!}"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">E-mail:</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="email" value="{{ $perusahaan->email }}"/>
+                <input type="text"  class="form-control" name="email" value="{!! $perusahaan->email !!}"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Contact Person:</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="kontak_person" value="{{ $perusahaan->kontak_person }}"/>
+                <input type="text"  class="form-control" name="kontak_person" value="{!! $perusahaan->kontak_person !!}"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">NPWP:</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="npwp" value="{{ $perusahaan->npwp }}"/>
+                <input type="text"  class="form-control" name="npwp" value="{!! $perusahaan->npwp !!}"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">EDI Number:</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="edi_number" value="{{ $perusahaan->edi_number }}"/>
+                <input type="text"  class="form-control" name="edi_number" value="{!! $perusahaan->edi_number !!}"/>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Enabler:</label>
             <div class="col-xs-5">
                 <label class="checkbox-inline">
-                    <input type="checkbox" name="enabler" value="X2" {!! ($perusahaan->enabler == 'X2')? 'checked' : '' !!}> X2 <br>
+                    <input type="checkbox" name="enabler" value="X2" {!! (str_contains($perusahaan->enabler,'X2'))? 'checked' : '' !!}> X2 <br>
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" name="enabler" value="EXTREME" {!! ($perusahaan->enabler == 'EXTREME')? 'checked' : '' !!}> EXTREME <br>
+                    <input type="checkbox" name="enabler" value="EXTREME" {!! (str_contains($perusahaan->enabler,'EXTREME'))? 'checked' : '' !!}> EXTREME <br>
+                 </label>
                 </label>
                 <label class="checkbox-inline">
-                    <input type="checkbox" name="enabler" value="Lainnya" {!! ($perusahaan->enabler == 'Lainnya')? 'checked' : '' !!}> Lainnya <br>               
+                    <input type="checkbox" name="enabler" value="Lainnya" {!! (str_contains($perusahaan->enabler,'Lainnya'))? 'checked' : '' !!}> Lainnya <br>
                 </label>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Jenis Perusahaan:</label>
             <div class="col-xs-5">
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir" {!! ($perusahaan->jenis_perusahaan == 'Eksportir')? 'checked' : '' !!}> Eksportir <br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Importir" {!! ($perusahaan->jenis_perusahaan == 'Importir')? 'checked' : '' !!}>Importir<br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="PPJK" {!! ($perusahaan->jenis_perusahaan == 'PPJK')? 'checked' : '' !!}> PPJK <br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir dan Importir" {!! ($perusahaan->jenis_perusahaan == 'Eksportir dan Importir')? 'checked' : '' !!}> Eksportir dan Importir <br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Shipping Line" {!! ($perusahaan->jenis_perusahaan == 'Shipping line')? 'checked' : '' !!}> Shipping Line<br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Airline" {!! ($perusahaan->jenis_perusahaan == 'Airline')? 'checked' : '' !!}> Airline<br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="Bank " {!! ($perusahaan->jenis_perusahaan == 'Bank')? 'checked' : '' !!}> Bank<br>
-                    <input type="checkbox" name="jenis_perusahaan[]" value="lainnya" {!! ($perusahaan->jenis_perusahaan == 'lainnya')? 'checked' : '' !!}> Lainnya<br>
-            </div>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir" {!! (str_contains($perusahaan->jenis_perusahaan,'Eksportir'))? 'checked' : '' !!}> Eksportir <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Importir" {!! (str_contains($perusahaan->jenis_perusahaan,'Importir'))? 'checked' : '' !!}>Importir<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="PPJK" {!! (str_contains($perusahaan->jenis_perusahaan,'PPJK'))? 'checked' : '' !!}> PPJK <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Eksportir dan Importir" {!! (str_contains($perusahaan->jenis_perusahaan,'Eksportir dan Importir'))? 'checked' : '' !!}> Eksportir dan Importir <br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Shipping Line" {!! (str_contains($perusahaan->jenis_perusahaan,'Shipping Line'))? 'checked' : '' !!}> Shipping Line<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Airline" {!! (str_contains($perusahaan->jenis_perusahaan,'Airline'))? 'checked' : '' !!}> Airline<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="Bank " {!! (str_contains($perusahaan->jenis_perusahaan,'Bank'))? 'checked' : '' !!}> Bank<br>
+                    <input type="checkbox" name="jenis_perusahaan[]" value="lainnya" {!! (str_contains($perusahaan->jenis_perusahaan,'lainnya'))? 'checked' : '' !!}> Lainnya<br>
+             </div>
         </div>
+       
 
 
     </section>
@@ -204,7 +206,7 @@ Dashboard
         <div class="form-group">
             <label class="col-xs-3 control-label">Detail Permasalahan</label>
             <div class="col-xs-5">
-                <textarea name = "detail_permasalahan" rows="10" cols="75" style="vertical-align: left;">{{ $activity->detail_permasalahan }}</textarea>
+                <textarea name = "detail_permasalahan" rows="10" cols="75" style="vertical-align: left;">{!! $activity->detail_permasalahan !!}</textarea>
             </div>
         </div>
         <div class="form-group">
@@ -323,8 +325,8 @@ Dashboard
 
 @endsection
 @section('code-footer')
-<script src="{{ asset('/js/jquery.steps.min.js') }}"></script>
-<link rel="stylesheet" href="{{ asset('/css/jquery.steps.css') }}">
+<script src="{!! asset('/js/jquery.steps.min.js') !!}"></script>
+<link rel="stylesheet" href="{!! asset('/css/jquery.steps.css') !!}">
 <style type="text/css">
   .wizard .content {
     min-height: 100px;

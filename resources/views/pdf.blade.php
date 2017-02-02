@@ -29,7 +29,7 @@
       <input type="text" class="col-xs-12" id="date" name="created_at" style="text-align: center;"value="{{$activity->created_at}}"><br><br>
       </p></div>
     <div class="col-xs-2"><p style="border: solid 1px #000000; background: #ffffff; padding: 15px; margin: 0; text-align: left; line-height: 13px; color: black; font-size: 10px">
-      <label for="arrival">Waktu Kedatangan :</label><br>
+      <label for="arrival">Waktu Datang :</label><br>
       <input type="text" class="col-xs-12" id="arrival" name="created_at" style="text-align: center;"value="{{$activity->waktu_kedatangan}}"><br><br>
     </p></div>
     <div class="col-xs-2"><p style="border: solid 1px #000000; background: #ffffff; padding: 15px; margin: 0; text-align: left; line-height: 13px; color: black; font-size: 10px">
@@ -166,14 +166,14 @@
   <p class="col-xs-12" for="dengan" style="font-size: 10px;">Dengan ini saya menyatakan telah menerima perangkat komputer dan <br> kelengkapannya sesuai data diatas dengan lengkap dan baik </p><br><br><br><br>
     <div class="col-xs-3" >
       <div class="col-xs-12" style="font-size: 10px">
-      Customer : <br>
-      <p style="font-size: 10px" value=""></p>
+      Customer:<br>
+      <p style="font-size: 10px" value="">{{ $perusahaan->kontak_person }}</p>
   </div>
   </div>
   <div class="col-xs-3">
       <div class="col-xs-12" style="font-size: 10px">
-      Petugas : <br>
-      <p style="font-size: 10px" value="" ></p>
+      Petugas: <br>
+      <p style="font-size: 10px" value="" >{{ $activity->nama_admin }}</p>
   </div>
   </div>
  

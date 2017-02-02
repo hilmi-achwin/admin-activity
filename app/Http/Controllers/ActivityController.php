@@ -14,7 +14,7 @@ use App\Postcheck;
 use Auth;
 use Session;
 use Input;
-use Validator;
+use Validator;  
 use Response;
 use PDF;
 use Illuminate\Mail\Mailer;
@@ -44,6 +44,7 @@ class ActivityController extends Controller
         $activity = Activity::where('id',$id)->first();
         
         $perusahaan = Perusahaan::where('nama_perusahaan',$activity->nama_perusahaan)->first();
+
         $data = [
             'page' => 'activity',
             'activity' => $activity,
@@ -52,13 +53,8 @@ class ActivityController extends Controller
         return view('activity.process',$data);
     }
 
-    public function postProcess(Request $request)
-
-
-       
-       
-      
- {
+    public function postProcess(Request $request) 
+    {
         $waktu_selesai = Carbon::now(7);
         $modul_terpasang = implode(',', $request['modul_terpasang']);
         $precheckInput = Precheck::create([
@@ -105,7 +101,7 @@ class ActivityController extends Controller
 
         $activityUpdate = Activity::where('id', $request->input('id_activity'))->update([
             'tindakan_perbaikan' => $request->input('tindakan_perbaikan'),
-            'nama_admin' => Auth::User()->id,
+            'nama_admin' => Auth::User()->name,
             'status' => 'Sudah',
             'waktu_selesai' => $waktu_selesai->toTimeString()
             ]);
