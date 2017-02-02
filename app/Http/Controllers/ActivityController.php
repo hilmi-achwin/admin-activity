@@ -24,13 +24,6 @@ use Carbon\Carbon;
 
 class ActivityController extends Controller
 {   
-    protected $mailer;
-
-     public function __construct(Mailer $mailer)
-    {
-        $this->mailer = $mailer;
-    }   
-
     public function index($status)
     {   
         $status = studly_case($status);
@@ -132,12 +125,7 @@ class ActivityController extends Controller
                 
   
 
-        // $message = sprintf('Klik link berikut untuk aktivasi akun Hai Unair anda ');
-
-        // $this->mailer->raw($message, function (Message $m) {
-        //     $m->to('hilmiweq321@gmail.com')->subject('Aktivasi akun Hai Unair');
-        //     $m->attach(public_path().'/Hasil Online BOF ITS.xlsx');
-        // });
+        
     }
 
    
