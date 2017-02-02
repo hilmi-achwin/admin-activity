@@ -16,6 +16,19 @@ Dashboard
 @endsection
 
 @section('main-content')
+<!-- include summernote css/js-->
+<div class="flash-message" style="margin-left: -16px;margin-right: -16px; margin-top: 13px;">
+  @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+  @if(Session::has('alert-' . $msg))
+        <div class="alert alert-{{ $msg }}">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <p class="" style="border-radius: 0">{{ Session::get('alert-' . $msg) }}</p>
+        </div>
+  {!!Session::forget('alert-' . $msg)!!}
+  @endif
+  @endforeach
+</div>
+
  <form id="profileForm" method="post" class="form-horizontal" action="{!!url('/activity/'.$activity->id.'/process')!!}" >
  <input type="hidden" name="_token" value="{!! csrf_token() !!}">
  <input type="hidden" name="id_activity" value="{!! $activity->id !!}">
@@ -128,7 +141,7 @@ Dashboard
         <h2>B. Komponen</h2>
             <label class="col-xs-3 control-label">Operating Sistem (OS)</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="os" />
+                <input type="text" required class="form-control" name="os" />
             </div>
         </div>
 
@@ -153,7 +166,7 @@ Dashboard
                     <input type="text"  name="modem" placeholder="ada,..."/>
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="modem" value="tidak-ada"> Tidak ada <br>
+                    <input type="radio"  name="modem" value="tidak-ada"> Tidak ada <br>
                 </label>
             </div>
         </div>
@@ -174,28 +187,28 @@ Dashboard
         <h2>Setting Komputer</h2>
             <label class="col-xs-3 control-label">No. Dial IPLUS</label>
             <div class="col-xs-5">
-                <input type="text" class="form-control" name="num_dial_iplus" />
+                <input type="text" required class="form-control" name="num_dial_iplus" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">IP EXTREME</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="ip_extreme" />
+                <input type="text" required class="form-control" name="ip_extreme" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Directory Modul</label>
             <div class="col-xs-5">
-                <input type="text"  class="form-control" name="directory_modul" />
+                <input type="text" required class="form-control" name="directory_modul" />
             </div>
         </div>
 
         <div class="form-group">
             <label class="col-xs-3 control-label">Lain-Lain</label>
             <div class="col-xs-5">
-                <textarea name = "lain-lainPre" rows="5" cols="55" style="vertical-align: left;"></textarea>
+                <textarea name = "lain-lainPre" required rows="5" cols="55" style="vertical-align: left;"></textarea>
             </div>
         </div>
     </section>
@@ -206,13 +219,13 @@ Dashboard
         <div class="form-group">
             <label class="col-xs-3 control-label">Detail Permasalahan</label>
             <div class="col-xs-5">
-                <textarea name = "detail_permasalahan" rows="10" cols="75" style="vertical-align: left;">{!! $activity->detail_permasalahan !!}</textarea>
+                <textarea name = "detail_permasalahan" required rows="10" cols="75" style="vertical-align: left;">{!! $activity->detail_permasalahan !!}</textarea>
             </div>
         </div>
         <div class="form-group">
             <label class="col-xs-3 control-label">Tindakan Perbaikan</label>
             <div class="col-xs-5">
-                <textarea name = "tindakan_perbaikan" rows="10" cols="75" style="vertical-align: left;"></textarea>
+                <textarea name = "tindakan_perbaikan" required rows="10" cols="75" style="vertical-align: left;"></textarea>
             </div>
         </div>
     </section>
@@ -302,26 +315,14 @@ Dashboard
         <div class="form-group">
             <label class="col-xs-3 control-label">Lain-Lain</label>
             <div class="col-xs-5">
-                <textarea name = "lain-lainPost" rows="5" cols="55" style="vertical-align: left;"></textarea>
+                <textarea name = "lain-lainPost" required rows="5" cols="55" style="vertical-align: left;"></textarea>
             </div>
         </div>
         
     </section>
 </form>
 
-<div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Welcome</h4>
-            </div>
-            <div class="modal-body">
-                <p class="text-center">Thanks for signing up</p>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 @endsection
 @section('code-footer')

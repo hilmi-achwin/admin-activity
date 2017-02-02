@@ -26,7 +26,7 @@
     </div></div>
     <div class="col-xs-2"><p style="border: solid 1px #000000; background: #ffffff; padding: 15px; margin: 0; text-align: left; line-height: 13px; color: black; font-size: 10px">
       <label for="date">Tanggal :</label><br>
-      <input type="text" class="col-xs-12" id="date" name="created_at" style="text-align: center;"value="{{$activity->created_at}}"><br><br>
+      <input type="text" class="col-xs-12" id="date" name="created_at" style="text-align: center;"value="{{$tanggal }}"><br><br>
       </p></div>
     <div class="col-xs-2"><p style="border: solid 1px #000000; background: #ffffff; padding: 15px; margin: 0; text-align: left; line-height: 13px; color: black; font-size: 10px">
       <label for="arrival">Waktu Datang :</label><br>
